@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time</title>
+</head>
+<body>
+    <span>This is : </span>
+    <span id="demo"></span>
+
+    <div></div>
+    <span>Current time is : </span>
+    <span id="et"></span>
+    <div></div>
+
+    <img src="/Screenshot 2022-11-10 152703.png" alt="Error" width="500px" height="500px">
+
+
+    <script>
+        let date =new Date()
+        let daysNames = ['hello','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        document.getElementById("demo").innerHTML = daysNames[date.getDay()];
+
+        let hms = [date.getHours(), date.getMinutes(), date.getSeconds()];
+
+
+        function checkingTime(){
+            let times = {
+                13 : "1",
+                14 : "2",
+                15 : "3",
+                16 : "4",
+                17 : "5",   
+                18 : "6",
+                19 : "7",
+                20 : "8",
+                21 : "9",
+                22 : "10",
+                23 : "11",
+                0 :  "12",
+            }
+            if(hms[0] > 12 ){
+                return times[hms[0]]
+            }else{return hms[0]}
+        }
+
+        const ap = function(){
+            if(hms[0] > 12)return "PM"
+            else return "AM"
+        }
+
+        let op = checkingTime() +":" + hms[1] + " " + ap()
+        document.getElementById("et").innerHTML = op
+  
+    </script>
+
+</body>
+</html>
